@@ -1,12 +1,20 @@
-# Your code here
-
-
 
 def finder(files, queries):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    result = []
+    cache = {}
+    for i in files:
+        num = -1
+        while i[num] != "/":
+            num -= 1
+        x = i[num+1:]
+        if x not in cache:
+            cache[x] = [i]
+        else:
+            cache[x].append(i)
+    for i in queries:
+        if i in cache:
+            for v in cache[i]:
+                result.append(v)
 
     return result
 
