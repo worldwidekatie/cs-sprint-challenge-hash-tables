@@ -1,8 +1,18 @@
 def has_negatives(a):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    result = []
+    pos = []
+    cache = {}
+
+    for i in a:
+        if i < 0 and i *-1 not in cache:
+            cache[i *-1] = i *-1
+        else:
+            pos.append(i)
+    
+    for i in pos:
+        if i in cache:
+            result.append(i)
+
 
     return result
 
