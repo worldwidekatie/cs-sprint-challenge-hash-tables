@@ -1,8 +1,8 @@
 def has_negatives(a):
     # make a list for results to return
     result = []
-    # make a list of positive integers
-    pos = []
+    # make a dictionary of positive integers
+    pos = {}
     # make a dictionary of negative integers
     cache = {}
 
@@ -12,9 +12,9 @@ def has_negatives(a):
         if i < 0 and i *-1 not in cache:
             cache[i *-1] = i *-1
         
-        # otherwise it's positive so add it to postive
-        else:
-            pos.append(i)
+        # if it's positive and not in the positive dictionary, add it
+        elif i >= 0 and i not in pos:
+            pos[i] = i
     
     # now we can loop through just positive numbers and cut down on time
     for i in pos:
